@@ -1,6 +1,6 @@
 package com.learn.tinyioc.beans.factory;
 
-public class HelloWorld {
+public class HelloWorld implements HelloWorldInterface{
 	private SayHello	sayHello;
 	private String		content;
 	public SayHello getSayHello() {

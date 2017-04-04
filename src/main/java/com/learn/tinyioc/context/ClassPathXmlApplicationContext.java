@@ -21,7 +21,7 @@ public class ClassPathXmlApplicationContext extends AbstractApplicationContext {
 		refresh();
 	}
 	
-	public void refresh() throws Exception{
+	public void loadBeanDefinitions(AbstractBeanFactory beanFactory) throws Exception{
 		XmlBeanDefinitionReader xmlReader=new XmlBeanDefinitionReader(new ResourceLoader());
 		xmlReader.loadBeanDefinitions(location);
 		for(Map.Entry<String, BeanDefinition> beanDefinition: xmlReader.getRegistry().entrySet()){
