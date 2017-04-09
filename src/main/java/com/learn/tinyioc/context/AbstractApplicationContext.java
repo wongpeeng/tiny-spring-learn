@@ -23,14 +23,10 @@ public abstract class AbstractApplicationContext implements ApplicationContext {
 	protected void registerBeanPostProcessor(AbstractBeanFactory beanFactory) throws Exception{
 		List beanPostProcessors=beanFactory.getBeansForType(BeanPostProcessor.class);
 		for(Object beanPostProcessor:beanPostProcessors){
-			addBeanPostProcessor(beanPostProcessor);
+			beanFactory.addBeanPostProcessor((BeanPostProcessor)beanPostProcessor);
 		}
 	}
 	
-	private void addBeanPostProcessor(Object beanPostProcessor) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	protected void onRefresh() throws Exception{
 		beanFactory.preInstantiateSingletons();

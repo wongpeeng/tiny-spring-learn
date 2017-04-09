@@ -15,6 +15,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 	
 	
 	public Object getBean(String beanName) throws Exception{
+		
 		BeanDefinition beanDefinition =beanDefinitionMap.get(beanName);
 		if(beanDefinition == null){
 			throw new IllegalArgumentException("bean "+beanName+" is not defined in confifuration!");
@@ -24,6 +25,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 			bean=doCreateBean(beanDefinition);
 			bean=initializeBean(bean,beanName);
 		}
+		
 		return bean;
 	}
 	public Object initializeBean(Object bean,String name)throws Exception{
@@ -39,7 +41,6 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 	public void registerBeanDefinition(String name,BeanDefinition beanDefinition){
 		beanDefinitionMap.put(name, beanDefinition);
 		beanDefinitionNames.add(name);
-		
 	}
 	
 	public void preInstantiateSingletons() throws Exception{
@@ -67,7 +68,8 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 	
 	protected Object createBeanInstance(BeanDefinition beanDefinition) throws Exception{
 		Class beanClass=beanDefinition.getBeanClass();
-		return beanClass.newInstance();
+		Object value= beanClass.newInstance();
+		return value;
 	}
 	
 	public List getBeansForType(Class type) throws Exception{

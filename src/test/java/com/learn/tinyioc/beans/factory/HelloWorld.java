@@ -1,10 +1,10 @@
 package com.learn.tinyioc.beans.factory;
 
 public class HelloWorld implements HelloWorldInterface{
-	private SayHello	sayHello;
+	private SayHelloInterface	sayHello;
 	private String		content;
 	public SayHello getSayHello() {
-		return sayHello;
+		return (SayHello) sayHello;
 	}
 	public void setSayHello(SayHello sayHello) {
 		this.sayHello = sayHello;

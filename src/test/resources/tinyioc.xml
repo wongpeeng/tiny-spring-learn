@@ -16,5 +16,12 @@
         <property name="content" value="Hello World!"></property>
         <property name="sayHello" ref="sayHello"></property>
     </bean>
+    <bean name="autoProxyCreator" class="com.learn.tinyioc.aop.AspectJAwareAdvisorAutoProxyCreator"></bean>
+    <bean name="aspectJExpressionPointcutAdvisor" class="com.learn.tinyioc.aop.AspectJExpressionPointcutAdvisor">
+    	<property name="advice" ref="interceptor1"></property>
+    	<property name="expression" value="execution(* com.learn.tinyioc..*.*(..) )"></property>
+    </bean>
+    <bean name="interceptor1" class="com.learn.tinyioc.aop.Interceptor1">
+    </bean>
 
 </beans>

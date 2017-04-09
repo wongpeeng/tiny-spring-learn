@@ -27,6 +27,7 @@ public class ClassPathXmlApplicationContext extends AbstractApplicationContext {
 		for(Map.Entry<String, BeanDefinition> beanDefinition: xmlReader.getRegistry().entrySet()){
 			beanFactory.registerBeanDefinition(beanDefinition.getKey(), beanDefinition.getValue());
 		}
+		
 	}
 	
 }

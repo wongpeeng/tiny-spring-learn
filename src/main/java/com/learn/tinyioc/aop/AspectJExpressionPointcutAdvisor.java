@@ -5,14 +5,12 @@ import org.aopalliance.aop.Advice;
 public class AspectJExpressionPointcutAdvisor implements PointcutAdvisor {
 
 	private Advice advice;
+	private AspectJExpressionPointcut pointcut=new AspectJExpressionPointcut();
 	public Advice getAdvice() {
 		return advice;
 	}
-	public void setPointcut(AspectJExpressionPointcut pointcut) {
-		this.pointcut = pointcut;
-	}
 
-	private AspectJExpressionPointcut pointcut=new AspectJExpressionPointcut();
+
 	public Pointcut getPointcut() {
 		// TODO Auto-generated method stub
 		return pointcut;
